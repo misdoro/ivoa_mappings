@@ -38,6 +38,14 @@ targetNamespace="http://www.ivoa.net/wsdl/RegistrySearch/v1.0">
 					</xs:complexType>
 				</xs:element>
 				
+				<xs:element name="ResolveResource">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="ri:Resource" minOccurs="1" maxOccurs="1"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				
 				<xs:element name="GetIdentity"/>
 				
 				<xs:element name="XQuerySearch">
@@ -140,6 +148,10 @@ targetNamespace="http://www.ivoa.net/wsdl/RegistrySearch/v1.0">
 			<part name="Resource" element="tns:ResolveResponse"/>
 		</message>
 		
+		<message name="ResolveResource">
+			<part name="Resource" element="tns:ResolveResource"/>
+		</message>
+		
 		<portType name="RegistrySearchPortType">
 			<operation name="KeywordSearch">
 				<input message="tns:KeywordSearchReq"/>
@@ -149,7 +161,7 @@ targetNamespace="http://www.ivoa.net/wsdl/RegistrySearch/v1.0">
 			
 			<operation name="GetResource">
 				<input message="tns:GetResourceReq"/>
-				<output message="tns:ResolveResp"/>
+				<output message="tns:ResolveResource"/>
 				<fault name="GetResourceError" message="tns:ErrorResp"/>
 				<fault name="NotFound" message="tns:NotFoundResp"/>
 			</operation>      

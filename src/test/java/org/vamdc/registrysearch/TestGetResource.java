@@ -24,6 +24,8 @@ public class TestGetResource extends TestCase {
 		}
 		
 		assertNotNull(result);
+		assertNotNull(result.getTitle());
+		assertTrue(result.getTitle().contains("BASECOL"));
 		System.out.println(result);
 	}
 
