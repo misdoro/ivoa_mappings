@@ -1,0 +1,18 @@
+<jaxb:bindings 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	schemaLocation="../schema/VODataService-v1.1.xsd"
+	version="2.0"
+	jaxb:extensionBindingPrefixes="xjc">
+
+	
+
+	<jaxb:bindings schemaLocation="../schema/VODataService-v1.1.xsd">
+		<jaxb:schemaBindings>
+			<jaxb:package name="net.ivoa.xml.vodataservice.v1_1" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+
+</jaxb:bindings>

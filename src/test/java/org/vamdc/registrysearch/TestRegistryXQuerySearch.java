@@ -23,7 +23,7 @@ public class TestRegistryXQuerySearch extends TestCase {
 	        "for $x in //ri:Resource " + 
 	        "where $x/capability[@standardID='ivo://vamdc/std/VAMDC-TAP']" +
 	        "and $x/@status='active' " +
-	        "return $x/identifier";
+	        "return $x";
 	
 	public void testXQuery() {
 		
