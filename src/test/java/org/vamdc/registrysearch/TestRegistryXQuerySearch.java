@@ -9,6 +9,8 @@ import net.ivoa.wsdl.registrysearch.OpUnsupportedResp;
 import net.ivoa.wsdl.registrysearch.RegistrySearchPortType;
 import net.ivoa.wsdl.registrysearch.v1.XQuerySearch;
 import net.ivoa.wsdl.registrysearch.v1.XQuerySearchResponse;
+import net.ivoa.xml.voresource.v1.Capability;
+import net.ivoa.xml.voresource.v1.Service;
 import junit.framework.TestCase;
 
 public class TestRegistryXQuerySearch extends TestCase {
@@ -39,7 +41,15 @@ public class TestRegistryXQuerySearch extends TestCase {
 			assertNotNull(searchResult);
 			assertTrue(searchResult.size()>0);
 			for (Object element:searchResult){
+				System.out.println();
 				JAXBElement obj = (JAXBElement)element;
+				System.out.println(obj.getName());
+				Service srv = (Service) obj.getValue();
+				System.out.println(srv.getIdentifier());
+				for (Capability cap:srv.getCapability()){
+					System.out.println(cap);
+				}
+				
 				System.out.println(obj.getValue().getClass());
 				System.out.println("SearchResult:"+element.toString());
 			}
