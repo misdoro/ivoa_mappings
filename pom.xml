@@ -1,0 +1,165 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.ivoa</groupId>
+	<artifactId>mappings</artifactId>
+	<version>11.12-SNAPSHOT</version>
+
+	<name>IVOA xml and wsdl mappings</name>
+	<description>IVOA Jaxb and jax-rs mappings required for VAMDC services.</description>
+
+	<organization>
+		<name>VAMDC</name>
+		<url>http://www.vamdc.org/</url>
+	</organization>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+
+	<scm>
+		<connection>scm:svn:http://svn.ntl.nnov.ru/misdoro/Jaxb_ivoa</connection>
+		<developerConnection>scm:svn:http://svn.ntl.nnov.ru/misdoro/Jaxb_ivoa</developerConnection>
+		<url>http://svn.ntl.nnov.ru/misdoro/Jaxb_ivoa</url>
+	</scm>
+
+	<repositories>
+		<repository>
+			<id>vamdc repository</id>
+			<name>VAMDC tapservice stuff for Maven</name>
+			<url>http://vamdc.doronin.org/maven/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>javanet repository</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>vamdcrepo</id>
+			<name>VAMDC releases</name>
+			<url>ftp://doronin.org/</url>
+		</repository>
+		<site>
+			<id>vamdcsites</id>
+			<url>ftp://doronin.org/Jaxb_ivoa</url>
+		</site>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>2.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<wsdlDirectory>src/main/resources/wsdl</wsdlDirectory>
+					<wsdlFiles>
+						<wsdlFile>RegistryQueryv1_0.wsdl</wsdlFile>
+					</wsdlFiles>
+					<sourceDestDir>${project.build.directory}/generated-sources/xjc</sourceDestDir>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaDirectory>src/main/resources/schema</schemaDirectory>
+					<!--<includeSchema>**/*.xsd</includeSchema> -->
+					<bindingDirectory>src/main/resources/binding</bindingDirectory>
+					<extension>true</extension>
+					<forceRegenerate>true</forceRegenerate>
+					<args>
+						<arg>-XtoString</arg>
+						<!--<arg>-Xequals</arg> -->
+						<!--<arg>-XhashCode</arg> -->
+						<!--<arg>-Xcopyable</arg> -->
+						<!--<arg>-Xvalue-constructor</arg> -->
+					</args>
+					<plugins>
+						<plugin>
+							<groupId>org.jvnet.jaxb2_commons</groupId>
+							<artifactId>jaxb2-basics</artifactId>
+							<version>0.5.3.MR1</version>
+						</plugin>
+					</plugins>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.1</version>
+			</plugin>
+		</plugins>
+		<extensions>
+			<!-- Enabling the use of FTP -->
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ftp</artifactId>
+				<version>1.0-beta-6</version>
+			</extension>
+		</extensions>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics-runtime</artifactId>
+			<version>0.5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<version>2.1.7</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.jvnet.staxex</groupId>
+					<artifactId>stax-ex</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.staxex</groupId>
+			<artifactId>stax-ex</artifactId>
+			<version>1.2</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>stax-api</artifactId>
+					<groupId>javax.xml.stream</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

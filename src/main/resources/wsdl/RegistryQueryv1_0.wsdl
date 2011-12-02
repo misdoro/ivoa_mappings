@@ -1,0 +1,12 @@
+<definitions name="searchableRegistry" targetNamespace="http://www.ivoa.net/wsdl/RegistrySearch"  
+xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:ris="http://www.ivoa.net/wsdl/RegistrySearch/v1.0" >
+	<import namespace="http://www.ivoa.net/wsdl/RegistrySearch/v1.0"
+		location="Search.wsdl"/>
+	<service name="RegistryInterfaceService" >
+		<port name="RegistrySearchPort" binding="ris:RegistrySearchSOAP" >
+			<soap:address location="http://casx019-zone1.ast.cam.ac.uk:80/registry/services/RegistryQueryv1_0"/>
+		</port>
+	</service>
+</definitions>
