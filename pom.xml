@@ -92,7 +92,6 @@
 				</executions>
 				<configuration>
 					<schemaDirectory>src/main/resources/schema</schemaDirectory>
-					<!--<includeSchema>**/*.xsd</includeSchema> -->
 					<bindingDirectory>src/main/resources/binding</bindingDirectory>
 					<extension>true</extension>
 					<forceRegenerate>true</forceRegenerate>
@@ -100,7 +99,7 @@
 						<arg>-XtoString</arg>
 						<!--<arg>-Xequals</arg> -->
 						<!--<arg>-XhashCode</arg> -->
-						<!--<arg>-Xcopyable</arg> -->
+						<arg>-Xcopyable</arg>
 						<!--<arg>-Xvalue-constructor</arg> -->
 					</args>
 					<plugins>

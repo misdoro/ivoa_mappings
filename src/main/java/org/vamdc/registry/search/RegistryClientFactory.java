@@ -1,4 +1,4 @@
-package org.vamdc.registrysearch;
+package org.vamdc.registry.search;
 
 import java.net.URL;
 import java.util.logging.Logger;
@@ -13,16 +13,13 @@ import net.ivoa.wsdl.registrysearch.RegistrySearchPortType;
  * @author doronin
  *
  */
-public final class RegistryFactory {
+public final class RegistryClientFactory {
 
 	private final static URL WSDL_LOCATION;
 	private final static QName SERVICE;
 
 	static {
-		URL url = null;
-		url = RegistryFactory.class.getResource("/wsdl/RegistryQueryv1_0.wsdl");
-		WSDL_LOCATION = url;
-
+		WSDL_LOCATION = RegistryClientFactory.class.getResource("/wsdl/RegistryQueryv1_0.wsdl");
 		SERVICE = new QName("http://www.ivoa.net/wsdl/RegistrySearch", "RegistryInterfaceService");
 	}
 
