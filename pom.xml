@@ -136,23 +136,6 @@
 			<groupId>com.sun.xml.ws</groupId>
 			<artifactId>jaxws-rt</artifactId>
 			<version>2.1.7</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.jvnet.staxex</groupId>
-					<artifactId>stax-ex</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.jvnet.staxex</groupId>
-			<artifactId>stax-ex</artifactId>
-			<version>1.2</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>stax-api</artifactId>
-					<groupId>javax.xml.stream</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

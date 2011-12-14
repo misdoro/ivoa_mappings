@@ -106,10 +106,6 @@ targetNamespace="http://www.ivoa.net/wsdl/RegistrySearch/v1.0">
 		
 		<message name="ErrorResp">
 			<part name="ErrorResp" element="tns:ErrorResponse"/>
-		</message>   
-		
-		<message name="SearchReq">
-			<part name="Search" element="tns:Search"/>
 		</message>
 		
 		<message name="SearchResp">
