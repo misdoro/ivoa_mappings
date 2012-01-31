@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0"
+  xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.0"
+  xmlns:vm="http://www.ivoa.net/xml/VOMetadata/v0.1"
+  xmlns:xc="http://www.vamdc.org/xml/XSAMS-consumer/v1.0"
+  targetNamespace="http://www.vamdc.org/xml/XSAMS-consumer/v1.0" elementFormDefault="unqualified"
+  attributeFormDefault="unqualified" version="1.0">
+
+  <xs:annotation>
+    <xs:appinfo>
+        <vm:schemaName>XSAMS-consumer</vm:schemaName>
+        <vm:schemaPrefix>xs</vm:schemaPrefix>
+        <vm:targetPrefix>xc</vm:targetPrefix>
+      </xs:appinfo>
+    <xs:documentation>
+        Implementation of an XML Schema describing an XSAMS-consumer service.
+      </xs:documentation>
+    <xs:documentation>
+        This schema defines a Capability type that is specific to XSAMS consumers.
+        A service with this capability should be registered as a Service.
+      </xs:documentation>
+  </xs:annotation>
+
+  <xs:import namespace="http://www.ivoa.net/xml/VOResource/v1.0"
+    schemaLocation="VOResource-v1.0.xsd"/>
+  <xs:import namespace="http://www.ivoa.net/xml/VODataService/v1.0"
+    schemaLocation="VODataService-v1.0.xsd"/>
+
+  <xs:complexType name="XsamsConsumerRestriction" abstract="true">
+    <xs:annotation>
+      <xs:documentation>
+            An abstract capability that fixes the standardID to the
+            IVOA ID for the XSAMS-consumer standard.
+         </xs:documentation>
+      <xs:documentation>
+            See vr:Capability for documentation on inherited children.
+         </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="vr:Capability">
+        <xs:sequence>
+          <xs:element name="validationLevel" type="vr:Validation" minOccurs="0"
+            maxOccurs="unbounded"/>
+          <xs:element name="description" type="xs:token" minOccurs="0"/>
+          <xs:element name="interface" type="vr:Interface" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="standardID" type="vr:IdentifierURI" use="required"
+          fixed="ivo://vamdc/std/XSAMS-consumer"/>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XsamsConsumer">
+    <xs:annotation>
+      <xs:documentation>
+            Extra metadata for a XSAMS-consumer capability.
+         </xs:documentation>
+    </xs:annotation>
+
+    <xs:complexContent>
+      <xs:extension base="xc:XsamsConsumerRestriction">
+        <xs:sequence>
+          <xs:element name="versionOfStandards" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                          The version identifier for the release of VAMDC standards.
+                      </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+
+          <xs:element name="versionOfSoftware" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                            The version identifier for the software implementing the service.
+                        </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+
+          <xs:element name="numberOfInputs" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                The number of XSAMS documents that can be processed in one call to the service. 
+                Notation minimum-maximum, with * indicating any number, e.g. 1-5, 2-2, 1-*.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          
+          <xs:element name="cacheLifetime" type="xs:decimal" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                Greatest time that an output is held in the cache, in seconds.
+                Omit this element if the service does not provide caching.
+                Zero means zero, not "no limit".
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+</xs:schema>
