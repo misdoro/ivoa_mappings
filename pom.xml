@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.ivoa</groupId>
 	<artifactId>mappings</artifactId>
@@ -18,9 +17,9 @@
 
 
 	<scm>
-		<connection>scm:svn:http://svn.ntl.nnov.ru/misdoro/Jaxb_ivoa</connection>
-		<developerConnection>scm:svn:http://svn.ntl.nnov.ru/misdoro/Jaxb_ivoa</developerConnection>
-		<url>http://svn.ntl.nnov.ru/misdoro/Jaxb_ivoa</url>
+		<connection>scm:git:git@github.com:misdoro/ivoa_mappings.git</connection>
+		<url>scm:git:git@github.com:misdoro/ivoa_mappings.git</url>
+		<developerConnection>scm:git:git@github.com:misdoro/ivoa_mappings.git</developerConnection>
 	</scm>
 
 	<repositories>
