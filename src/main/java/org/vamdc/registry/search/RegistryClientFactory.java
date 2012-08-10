@@ -1,7 +1,6 @@
 package org.vamdc.registry.search;
 
 import java.net.URL;
-import java.util.logging.Logger;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.BindingProvider;
