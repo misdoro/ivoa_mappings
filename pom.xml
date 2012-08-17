@@ -95,6 +95,7 @@
 					<forceRegenerate>true</forceRegenerate>
 					<args>
 						<arg>-XtoString</arg>
+						<arg>-Xannotate</arg>
 						<!--<arg>-Xequals</arg> -->
 						<!--<arg>-XhashCode</arg> -->
 						<arg>-Xcopyable</arg>
@@ -104,8 +105,13 @@
 						<plugin>
 							<groupId>org.jvnet.jaxb2_commons</groupId>
 							<artifactId>jaxb2-basics</artifactId>
-							<version>0.5.3.MR1</version>
+							<version>0.6.4</version>
 						</plugin>
+						<plugin>
+                            <groupId>org.jvnet.jaxb2_commons</groupId>
+                            <artifactId>jaxb2-basics-annotate</artifactId>
+                            <version>0.6.4</version>
+                        </plugin>
 					</plugins>
 				</configuration>
 			</plugin>
@@ -120,7 +126,7 @@
 		<dependency>
 			<groupId>org.jvnet.jaxb2_commons</groupId>
 			<artifactId>jaxb2-basics-runtime</artifactId>
-			<version>0.5.3</version>
+			<version>0.6.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.xml.ws</groupId>
