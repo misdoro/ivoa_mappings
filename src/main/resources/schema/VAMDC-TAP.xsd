@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" 
+xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.0" 
 xmlns:txs="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" 
 xmlns:vm="http://www.ivoa.net/xml/VOMetadata/v0.1" 
 targetNamespace="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" 
@@ -21,6 +23,7 @@ elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0
    </xs:annotation>
 
    <xs:import namespace="http://www.ivoa.net/xml/VOResource/v1.0" schemaLocation="VOResource-v1.0.xsd"/>
+   <xs:import namespace="http://www.ivoa.net/xml/VODataService/v1.0" schemaLocation="VODataService-v1.0.xsd"/>
 
    <xs:complexType name="VamdcTapRestriction" abstract="true">
       <xs:annotation>
@@ -96,7 +99,15 @@ elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0
                      </xs:documentation>
                   </xs:annotation>
                </xs:element>
-
+              
+               <xs:element name="application" type="vr:IdentifierURI" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>
+                        IVO identifier for a registered application that is well-suited to the data produced by
+                        this service.
+                     </xs:documentation>  
+                  </xs:annotation>
+               </xs:element>
 
             </xs:sequence>
          </xs:extension>
