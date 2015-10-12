@@ -13,6 +13,10 @@
 	</organization>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jaxb.version>2.2.11</jaxb.version>
+		<jaxb2-basics.version>0.9.5</jaxb2-basics.version>
+		<jaxb2-annotate.version>1.0.2</jaxb2-annotate.version>
+		<jaxws.version>2.2.10</jaxws.version>
 	</properties>
 
 
@@ -105,12 +109,12 @@
 						<plugin>
 							<groupId>org.jvnet.jaxb2_commons</groupId>
 							<artifactId>jaxb2-basics</artifactId>
-							<version>0.6.4</version>
+							<version>${jaxb2-basics.version}</version>
 						</plugin>
 						<plugin>
                             <groupId>org.jvnet.jaxb2_commons</groupId>
                             <artifactId>jaxb2-basics-annotate</artifactId>
-                            <version>0.6.4</version>
+                            <version>${jaxb2-annotate.version}</version>
                         </plugin>
 					</plugins>
 				</configuration>
@@ -126,17 +130,17 @@
 		<dependency>
 			<groupId>org.jvnet.jaxb2_commons</groupId>
 			<artifactId>jaxb2-basics-runtime</artifactId>
-			<version>0.6.4</version>
+			<version>${jaxb2-basics.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.xml.ws</groupId>
 			<artifactId>jaxws-rt</artifactId>
-			<version>2.1.7</version>
+			<version>${jaxws.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.10</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
